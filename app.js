@@ -1,24 +1,18 @@
 const express = require('express');
-//const cors = require('cors');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 const app = express();
-
-const pool = require('./config/db');
 
 require('dotenv').config();
 
 const PORT = process.env.PORT;
-const SECRET_KEY = process.env.JWT_SECRETKEY;
 
+app.use(express.json());
+app.use(cors());
 
+const ventasRoute = require('./routes/ventasRoute');
 
-
-
-
-
-
+app.use('/api/', ventasRoute);
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
