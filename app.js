@@ -7,6 +7,7 @@ const app = express();
 
 
 const authRoute = require('./routes/authRoute');
+const vehiculosRoute = require('./routes/vehiculosRoute');
 const pool = require('./config/db');
 
 require('dotenv').config();
@@ -19,7 +20,7 @@ app.use(cors());
 
 
 app.use('/api/', authRoute);
-
+app.use('/api/',vehiculosRoute)
 
 
 

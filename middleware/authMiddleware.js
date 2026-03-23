@@ -15,9 +15,9 @@ const AuthMiddleware = (req,res,next) => {
         if(error){
             return res.status(401).json({status:401,message:'No autorizado, token invalido..'});
         }
-    });
 
-    next();
+         next();
+    });
 }
 
 module.exports = AuthMiddleware;
