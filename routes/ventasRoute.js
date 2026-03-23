@@ -1,10 +1,11 @@
 const express = require('express');
 const pool = require('../config/db');
+const AuthMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
 // GET - Listar todas las ventas
-router.get('/ventas', (req, res) => {
+router.get('/ventas', AuthMiddleware, (req, res) => {
     const sql = `SELECT v.id_venta, c.nombre AS cliente, ve.marca, ve.modelo, u.nombre AS vendedor, v.fecha_venta, v.total
                  FROM ventas v
                  INNER JOIN clientes c ON v.id_cliente = c.id_cliente
@@ -22,7 +23,7 @@ router.get('/ventas', (req, res) => {
 });
 
 // GET - Obtener una venta por ID
-router.get('/ventas/:id', (req, res) => {
+router.get('/ventas/:id', AuthMiddleware, (req, res) => {
     const id = req.params.id;
 
     const sql = 'SELECT * FROM ventas WHERE id_venta = ?';
@@ -42,7 +43,7 @@ router.get('/ventas/:id', (req, res) => {
 });
 
 // POST - Crear venta
-router.post('/ventas', (req, res) => {
+router.post('/ventas', AuthMiddleware, (req, res) => {
     const venta = req.body;
 
     if (!venta.id_cliente || !venta.id_vehiculo || !venta.id_vendedor || !venta.fecha_venta || !venta.total) {
@@ -68,7 +69,7 @@ router.post('/ventas', (req, res) => {
 });
 
 // PUT - Actualizar venta
-router.put('/ventas/:id', (req, res) => {
+router.put('/ventas/:id', AuthMiddleware, (req, res) => {
     const id = req.params.id;
     const venta = req.body;
 
@@ -93,7 +94,7 @@ router.put('/ventas/:id', (req, res) => {
 });
 
 // DELETE - Eliminar venta
-router.delete('/ventas/:id', (req, res) => {
+router.delete('/ventas/:id', AuthMiddleware, (req, res) => {
     const id = req.params.id;
 
     const sql = 'DELETE FROM ventas WHERE id_venta = ?';
