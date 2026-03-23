@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const router = express.Router();
 
-router.post('/login',(req,res)=>{
+router.post('/login', async (req,res)=>{
 
     const {username, password} = req.body;
 
@@ -44,14 +44,14 @@ router.post('/login',(req,res)=>{
 
 
 router.get('/usuarios', AuthMiddleware, (req,res)=>{
-    const sql = "select Id as code, username, 'correo@dominio.com' as email FROM  Usuarios";
+    const sql = "select Id as code, username, correo as email FROM  Usuarios";
 
     pool.query(sql,(error,results)=>{
         if(error){
                 return res.status(500).json({status:500, message:'Ocurrio un error en la consulta..'});
         }
 
-        return res.status(200).json({status:200,message:'Success', sta:results});
+        return res.status(200).json({status:200,message:'Success', data:results});
     });
 });
 

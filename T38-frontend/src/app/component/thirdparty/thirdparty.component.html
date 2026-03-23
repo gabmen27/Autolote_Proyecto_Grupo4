@@ -1,0 +1,21 @@
+<section class="thirdparty-container">
+  <h2>Productos de API de terceros</h2>
+
+  <div class="actions">
+    <button (click)="fetchProducts()" [disabled]="loading">Actualizar</button>
+  </div>
+
+  <div class="status" *ngIf="loading">Cargando ...</div>
+  <div class="status error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div class="product-list" *ngIf="!loading && products.length">
+    <article class="product-card" *ngFor="let product of products">
+      <img [src]="product.image" [alt]="product.title" />
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.description }}</p>
+      <div class="price">${{ product.price }}</div>
+    </article>
+  </div>
+
+  <p *ngIf="!loading && !products.length">No hay productos para mostrar.</p>
+</section>

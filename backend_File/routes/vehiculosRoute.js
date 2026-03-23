@@ -6,7 +6,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 router.get('/vehiculos',(req,res)=>{
 
-    const sql = 'SELECT * From Vehiculos';
+    const sql = 'SELECT Id AS codigo, Marca AS marca, Modelo AS modelo, Anio AS anio, Precio AS precio, Disponibilidad AS disponibilidad FROM Vehiculos';
 
     pool.query(sql,(error,results)=>{
 
@@ -24,7 +24,7 @@ router.get('/filtrar/marca/:marca', (req, res) => {
 
     pool.query(sql, [marca], (error, results) => {
         if (error) return res.status(500).json({ status: 500, message: 'Error en la consulta' });
-        res.status(200).json({ status: 200, data: results });
+        res.status(200).json({ status: 200, message: 'Success', data: results });
     });
 });
 

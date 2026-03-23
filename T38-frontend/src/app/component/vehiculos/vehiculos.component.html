@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Inventario de Vehículos</h2>
+
+  <table *ngIf="vehiculos && vehiculos.length > 0" class="table">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>Precio</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of vehiculos">
+        <td>{{ v.codigo }}</td>
+        <td>{{ v.marca }}</td>
+        <td>{{ v.modelo }}</td>
+        <td>{{ v.anio }}</td>
+        <td>L. {{ v.precio }}</td>
+        <td>{{ v.disponibilidad }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="vehiculos && vehiculos.length === 0">No hay vehículos disponibles.</p>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>
