@@ -1,1 +1,30 @@
-<p>home works!</p>
+<div class="exchange-rates-card">
+  <h3>Precios de Hoy</h3>
+  <div *ngIf="tasas.error; else ratesDisplay">
+    <p>{{ tasas.error }}</p>
+  </div>
+  <ng-template #ratesDisplay>
+    <div class="rates-container">
+      <div class="rate-item">
+        <span class="currency-symbol">$</span>
+        <span class="currency-value">{{ tasas.USD || 'N/A' }}</span>
+        <span class="currency-name">USD</span>
+      </div>
+      <div class="rate-item">
+        <span class="currency-symbol">L</span>
+        <span class="currency-value">{{ tasas.HNL || 'N/A' }}</span>
+        <span class="currency-name">HNL</span>
+      </div>
+      <div class="rate-item">
+        <span class="currency-symbol">€</span>
+        <span class="currency-value">{{ tasas.EUR || 'N/A' }}</span>
+        <span class="currency-name">EUR</span>
+      </div>
+      <div class="rate-item">
+        <span class="currency-symbol">Q</span>
+        <span class="currency-value">{{ tasas.GTQ || 'N/A' }}</span>
+        <span class="currency-name">GTQ</span>
+      </div>
+    </div>
+  </ng-template>
+</div>

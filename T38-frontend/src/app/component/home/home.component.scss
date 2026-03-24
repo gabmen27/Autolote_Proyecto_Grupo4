@@ -1,0 +1,52 @@
+.exchange-rates-card {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.exchange-rates-card h3 {
+  margin-bottom: 15px;
+  color: #495057;
+  font-size: 1.5em;
+}
+
+.rates-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.rate-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  min-width: 80px;
+}
+
+.currency-symbol {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.currency-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #28a745;
+  margin: 5px 0;
+}
+
+.currency-name {
+  font-size: 0.9em;
+  color: #6c757d;
+}

@@ -1,10 +1,11 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 const pool = require('../config/db');
 const AuthMiddleware = require('../middleware/authMiddleware');
 
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const router = express.Router();
 
@@ -65,8 +66,8 @@ router.get('/gethash/:texto', async (req,res)=>{
     res.send(hash);
 });
 
-//Este metodo es para registrar un usuario nuevo
-router.post('/usuario/registro', async (req, res) => {
+
+router.post('/usuario/registro', AuthMiddleware,async (req, res) => {
     const { username, password, email, rol } = req.body;
 
     if (!username || !password || !email || !rol) {

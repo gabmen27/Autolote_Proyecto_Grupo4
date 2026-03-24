@@ -1,6 +1,6 @@
-# 🚗 Sistema de Gestión para Autolote - CEUTEC
+# Sistema de Gestión para Autolote - CEUTEC
 
-## 🎯 Objetivo del Sistema
+##  Objetivo del Sistema
 
 Plataforma integral de **gestión 360°** para un autolote, que incluye:
 - Control completo de inventario de vehículos
@@ -10,7 +10,7 @@ Plataforma integral de **gestión 360°** para un autolote, que incluye:
 
 Desarrollado como proyecto académico para la clase de Programación en CEUTEC.
 
-## 🏗️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 
 El proyecto sigue una arquitectura **cliente-servidor** separada:
 
@@ -39,27 +39,27 @@ Proyecto_Autolote/
 └── README.md
 ```
 
-## ✨ Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
-### 🔐 Seguridad
+### Seguridad
 - **Autenticación robusta** con JWT (JSON Web Tokens)
 - Protección de rutas mediante `AuthMiddleware`
 - Hashing de contraseñas con bcrypt
 - Roles de usuario (ADMIN, VENDEDOR)
 
-### 📦 Gestión de Inventario
+### Gestión de Inventario
 - **CRUD completo** de vehículos:
   - Marca, Modelo, Año, Precio, Disponibilidad
 - Filtros avanzados por marca, estado y precio máximo
 - Actualización de stock en tiempo real
 
-### 💰 Módulo de Ventas
+### Módulo de Ventas
 - Registro de transacciones completas
 - Vinculación: Cliente + Vehículo + Vendedor
 - Cálculo automático de **PrecioTotal** e **Impuestos**
 - Historial de ventas con auditoría
 
-### 👥 CRM & Consultas
+### CRM & Consultas
 - Sistema para que clientes envíen mensajes sobre vehículos específicos
 - Almacenamiento de historial en tabla `Consultas`
 - Seguimiento de intereses y consultas por vehículo
@@ -88,7 +88,7 @@ Proyecto_Autolote/
 | `POST` | `/api/registrar/consulta` | Registrar consulta de cliente por vehículo | ✅ JWT |
 | `GET` | `/api/thirdparty/products` | Obtener productos de FakeStoreAPI | ✅ JWT |
 
-## 🛠️ Tecnologías Clave
+##  Tecnologías Clave
 
 ### Backend
 - **Node.js** + **Express.js**: Framework para API REST
@@ -105,7 +105,7 @@ Proyecto_Autolote/
 - **HttpClient**: Consumo asíncrono de servicios REST
 - **RxJS**: Programación reactiva para observables
 
-## 🚀 Guía de Instalación
+## Guía de Instalación
 
 ### Prerrequisitos
 - Node.js (v16+)
@@ -148,4 +148,4 @@ THIRD_PARTY_API_BASE_URL=https://fakestoreapi.com/products
 
 ---
 
-**Desarrollado por Grupo 4 - CEUTEC** 🎓
+**Desarrollado por Grupo 4 - CEUTEC** 

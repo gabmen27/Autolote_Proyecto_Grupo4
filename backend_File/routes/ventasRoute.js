@@ -35,7 +35,7 @@ router.get('/ventas', AuthMiddleware, (req, res) => {
 });
 
 
-router.post('/ventas', AuthMiddleware, (req, res) => {
+router.post('/registrar/ventas', AuthMiddleware, (req, res) => {
     
     const { clienteId, vehiculoId, vendedorId, precioTotal, impuestos } = req.body;
 
@@ -47,6 +47,7 @@ router.post('/ventas', AuthMiddleware, (req, res) => {
 
     pool.query(sql, [clienteId, vehiculoId, vendedorId, precioTotal, impuestos], (error, results) => {
         if (error) {
+            console.log(error);
             console.error('Error al insertar venta:', error.sqlMessage);
             return res.status(500).json({ status: 500, message: 'Error en la consulta SQL' });
         }

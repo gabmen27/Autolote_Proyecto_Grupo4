@@ -2,8 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 const pool = require('./config/db');
-require('dotenv').config();
 
 const app = express();
 
